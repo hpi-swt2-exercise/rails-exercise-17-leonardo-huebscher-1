@@ -11,6 +11,6 @@ class AuthorsController < ApplicationController
 	
 	private
 		def authorParams
-			params.require(:author).permit(:firstName, :lastName, :homepage);
+			params.require(:author).permit(:first_name, :last_name, :homepage);
 		end
 end
