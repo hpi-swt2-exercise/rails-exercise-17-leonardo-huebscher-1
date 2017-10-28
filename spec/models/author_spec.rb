@@ -19,7 +19,6 @@ RSpec.describe Author, type: :model do
 	end
 	
 	it "should concat the 'first name' and 'last name' to 'name'" do
-	
 		first_name = 'Alan'
 		last_name = 'Turing'
 		homepage = 'http://wikipedia.org/alan_turing'
@@ -31,6 +30,15 @@ RSpec.describe Author, type: :model do
 		
 		expect(author.name).to eq(first_name + ' ' + last_name)
 		
+	end
+	
+	it "should fail creation if no last name is given" do
+		author = Author.new(
+			first_name: 'Alan', 
+			last_name: nil, 
+			homepage: 'http://wikipedia.org/alan_turing')
+			
+		expect(author).to be_invalid
 	end
 
 end
