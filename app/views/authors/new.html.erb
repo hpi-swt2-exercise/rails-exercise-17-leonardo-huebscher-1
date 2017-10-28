@@ -2,17 +2,22 @@
 
 <%= form_for :author, url: authors_path do |f| %>
 	<p>
-		<%= f.label :first_name, 'First name'%><br>
+		<%= f.label :first_name%><br>
 		<%= f.text_field :first_name %>
 	</p>
 	<p>
-		<%= f.label :last_name, 'Last name' %><br>
+		<%= f.label :last_name %><br>
 		<%= f.text_field :last_name %>
 	</p>
 	<p>
-		<%= f.label :homepage, 'Homepage' %><br>
+		<%= f.label :homepage %><br>
 		<%= f.text_field :homepage %>
 	</p>
+	<% if @author.errors.any? %>
+		<% @author.errors.full_messages.each do |msg| %>
+			<%= msg.downcase  %><br />
+		<% end %>
+	<% end %>
 	<p>
 		<%= f.submit %>
 	</p>
