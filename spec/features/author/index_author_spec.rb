@@ -6,4 +6,12 @@ describe "Index author page", type: :feature do
 		visit index_author_path
 	end
 	
+	it "should show each authors name and homepage" do
+		@alan = FactoryGirl.create :author
+		visit index_author_path
+		
+		expect(page).to have_content(@alan.first_name)
+		expect(page).to have_content(@alan.last_name)
+	end
+	
 end
