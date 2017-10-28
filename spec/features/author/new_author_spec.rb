@@ -19,4 +19,13 @@ describe "New author page", type: :feature do
 		
 		expect(page).to have_css('input[type="submit"]')
 	end
+	
+	it "should report that last name can´t be blank" do
+		visit new_author_path
+		fill_in 'First name', with: 'Alan'
+		fill_in 'Homepage', with: 'http://wikipedia.de/Alan_Turing'
+		click_button 'Save Author'
+		
+		expect(page).to have_content('last name can\'t be blank')
+	end
 end
