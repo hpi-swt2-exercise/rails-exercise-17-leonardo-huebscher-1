@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Author, type: :model do
+RSpec.describe Author, type: :model do
 
 	it "should create instance" do
 	    firstName = 'Alan'
