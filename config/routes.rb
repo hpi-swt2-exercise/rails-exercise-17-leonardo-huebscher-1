@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :authors
-  get 'new_author', to: 'authors#new'
-  get 'index_author', to: 'authors#index'
-  
+
   # You can have the root of your site routed with "root"
   root 'home#index'
  
