@@ -25,4 +25,11 @@ describe 'Index paper page', type: :feature do
 		
 		expect(page).to have_link('Edit', :href=>edit_paper_path(@paper))
 	end
+	
+	it 'should contain a link for each paper to delete' do
+		@paper = FactoryGirl.create :paper
+		visit papers_path
+		
+		expect(page).to have_link('Destroy')
+	end
 end
