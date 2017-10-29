@@ -2,12 +2,12 @@ require 'rails_helper'
 
 describe 'Edit author page', type: :feature do
 
-	it "should render the edit author page" do
+	it 'should render the edit author page' do
 		@alan = FactoryGirl.create :author
 		visit edit_author_path(@alan)
 	end
 	
-	it "should save changes made to the author" do
+	it 'should save changes made to the author' do
 		@alan = FactoryGirl.create :author
 		visit edit_author_path(@alan)
 		
