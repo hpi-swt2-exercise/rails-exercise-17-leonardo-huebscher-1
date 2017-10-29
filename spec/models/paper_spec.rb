@@ -10,5 +10,14 @@ RSpec.describe Paper, type: :model do
 			
 		expect(paper).to be_invalid
 	end
+	
+	it "should fail creation if no venue is given" do
+		paper = Paper.new(
+			title: 'This is a paper', 
+			venue: nil, 
+			year: 2009)
+			
+		expect(paper).to be_invalid
+	end
   
 end
