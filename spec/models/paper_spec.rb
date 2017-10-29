@@ -39,9 +39,12 @@ RSpec.describe Paper, type: :model do
 	end
 	
 	it "paper should have an empty list of authors by default" do
-      @paper = FactoryGirl.create :paper
+      paper = Paper.new(
+			title: 'This is a paper', 
+			venue: 'Proceedings of some conference', 
+			year: 'nineteen-fifty')
 
-      expect(@paper.authors).to be_empty
+      expect(paper.authors).to be_empty
   end
   
 end
