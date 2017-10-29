@@ -41,4 +41,13 @@ describe 'Index author page', type: :feature do
 		expect(page).to have_link('Destroy', :href=>destroy_author_path(@alan))
 	end
 	
+	it 'should raise no error when deleting an author' do
+		@alan = FactoryGirl.create :author
+		visit authors_path
+		
+		click_link 'Destroy'
+		
+		expect(page).to_not raise_error('Unknown action')
+	end
+	
 end
