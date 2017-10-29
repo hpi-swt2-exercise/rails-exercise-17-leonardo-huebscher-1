@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'Index author page', type: :feature do
+describe 'Index paper page', type: :feature do
   
 	it 'should render' do
-		visit authors_path
+		visit papers_path
 	end
 	
 	it 'should contain add paper link' do
@@ -17,5 +17,12 @@ describe 'Index author page', type: :feature do
 		visit papers_path
 		
 		expect(page).to have_link('Show', :href=>paper_path(@paper))
+	end
+	
+	it 'should contain a link to each papers edit page' do
+		@paper = FactoryGirl.create :paper
+		visit papers_path
+		
+		expect(page).to have_link('Edit', :href=>edit_paper_path(@paper))
 	end
 end
