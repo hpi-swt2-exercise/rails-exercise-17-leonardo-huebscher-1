@@ -28,5 +28,14 @@ RSpec.describe Paper, type: :model do
 			
 		expect(paper).to be_invalid
 	end
+	
+	it "should fail creation if no year is not given as integer" do
+		paper = Paper.new(
+			title: 'This is a paper', 
+			venue: 'Proceedings of some conference', 
+			year: 'nineteen-fifty')
+			
+		expect(paper).to be_invalid
+	end
   
 end
