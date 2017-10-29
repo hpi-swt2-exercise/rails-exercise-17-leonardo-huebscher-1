@@ -16,5 +16,13 @@ describe 'Edit paper page', type: :feature do
 		
 		expect(page).to have_content('Best Paper EVER')
 	end
+	
+	it 'should have a select box for the first author' do
+		@author = FactoryGirl.create :author
+		@paper = FactoryGirl.create :paper
+		visit edit_paper_path(@paper)
+		
+		expect(page).to have_select('Author 1', selected: @author, options: [ @author ])
+	end
 
 end
