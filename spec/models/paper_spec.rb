@@ -45,6 +45,6 @@ RSpec.describe Paper, type: :model do
 			year: 'nineteen-fifty')
 
       expect(paper.authors).to be_empty
-  end
+	end
   
 end

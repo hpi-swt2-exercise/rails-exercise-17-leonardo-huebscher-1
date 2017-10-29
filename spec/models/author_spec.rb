@@ -40,5 +40,14 @@ RSpec.describe Author, type: :model do
 			
 		expect(author).to be_invalid
 	end
+	
+	it "author should have an empty list of papers by default" do
+		author = Author.new(
+			first_name: 'Alan', 
+			last_name: nil, 
+			homepage: 'http://wikipedia.org/alan_turing')
+
+		expect(author.papers).to be_empty
+	end
 
 end
