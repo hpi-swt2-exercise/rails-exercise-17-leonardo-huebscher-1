@@ -24,5 +24,12 @@ describe 'Edit paper page', type: :feature do
 		
 		expect(page).to have_select('paper_author_id_1')
 	end
+	it 'should have a select box for the second author' do
+		@author = FactoryGirl.create :author
+		@paper = FactoryGirl.create :paper
+		visit edit_paper_path(@paper)
+		
+		expect(page).to have_select('paper_author_id_2')
+	end
 
 end
