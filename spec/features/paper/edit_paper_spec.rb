@@ -22,7 +22,7 @@ describe 'Edit paper page', type: :feature do
 		@paper = FactoryGirl.create :paper
 		visit edit_paper_path(@paper)
 		
-		expect(page).to have_select('Author 1', selected: @author, options: [ @author ])
+		expect(page).to have_select('paper_author_id_1')
 	end
 
 end

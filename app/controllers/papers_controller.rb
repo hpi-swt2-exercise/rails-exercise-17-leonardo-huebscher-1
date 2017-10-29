@@ -12,6 +12,7 @@ class PapersController < ApplicationController
 	end
 	
 	def edit
+		@authors = Author.all
 		@paper = Paper.find(params[:id])
 	end
 	
