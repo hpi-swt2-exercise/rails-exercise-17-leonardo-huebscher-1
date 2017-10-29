@@ -15,7 +15,7 @@
 	</p>
 	<% if @author.errors.any? %>
 		<% @author.errors.full_messages.each do |msg| %>
-			<%= msg.downcase  %><br />
+			<%= msg %><br />
 		<% end %>
 	<% end %>
 	<p>

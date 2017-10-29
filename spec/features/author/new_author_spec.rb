@@ -26,6 +26,6 @@ describe "New author page", type: :feature do
 		fill_in 'Homepage', with: 'http://wikipedia.de/Alan_Turing'
 		click_button 'Save Author'
 		
-		expect(page).to have_content("last name can't be blank")
+		expect(page).to have_content("Last name can't be blank")
 	end
 end
