@@ -15,17 +15,18 @@ describe "New paper page", type: :feature do
 	end
 	
 	it "should save the paper, when the form got submitted" do
+		@paper = FactoryGirl.create :paper
 		visit new_paper_path
 		
-		fill_in 'Title', with: 'COMPUTING MACHINERY AND INTELLIGENCE'
-		fill_in 'Venue', with: 'Mind 49: 433-460'
-		fill_in 'Year', with: 1950
+		fill_in 'Title', with: @paper.title
+		fill_in 'Venue', with: @paper.venue
+		fill_in 'Year', with: @paper.year
 		click_button 'Save Paper'
 		
 		expect(Paper.where(
-			title: 'COMPUTING MACHINERY AND INTELLIGENCE',
-			venue: 'Mind 49: 433-460',
-			year: 1950
+			title: @paper.title,
+			venue: @paper.venue,
+			year: @paper.year
 		)).to exist
 	end
 

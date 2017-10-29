@@ -11,4 +11,11 @@ describe 'Index author page', type: :feature do
 		
 		expect(page).to have_link('Add paper', :href=>new_paper_path)
 	end
+	
+	it 'should contain a link to each papers details page' do
+		@paper = FactoryGirl.create :paper
+		visit papers_path
+		
+		expect(page).to have_link('Show', :href=>paper_path(@paper))
+	end
 end
