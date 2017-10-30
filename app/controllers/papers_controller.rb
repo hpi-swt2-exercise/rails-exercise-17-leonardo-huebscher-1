@@ -1,6 +1,7 @@
 class PapersController < ApplicationController
 	def index
 		@papers = Paper.all
+		@papers = Paper.filterYear(params[:year]) unless params[:year].blank?
 	end
 	
 	def show
