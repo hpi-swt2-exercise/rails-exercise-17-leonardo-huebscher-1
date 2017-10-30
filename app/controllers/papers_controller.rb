@@ -44,6 +44,8 @@ class PapersController < ApplicationController
 	
 	private
 		def paperParams
-			params.require(:paper).permit(:title, :venue, :year);
+			#params.require(:paper).permit(:title, :venue, :year, :author_id);
+			#params.require(:paper).permit!
+			params.require(:paper).permit(:title, :venue, :year, { author_ids: [] })
 		end
 end
