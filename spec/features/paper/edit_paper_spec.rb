@@ -40,5 +40,18 @@ describe 'Edit paper page', type: :feature do
 		
 		expect(page).to have_select('paper_author_id_1', selected: @author.name)
 	end
+	
+	it 'should add the author being selected in first author selector' do
+		@alan = FactoryGirl.create :author
+		@peter = FactoryGirl.create :author, first_name: 'Peter', last_name: 'Plagiarist', homepage: 'http://wikipedia.de/alan_turing'
+		@paper = FactoryGirl.create :paper
+		visit edit_paper_path(@paper)
+		
+		page.select @peter.name, :from => 'paper_author_id_1'
+		click_button 'Save Paper'
+		
+		expect(@paper.authors).to include(@peter)
+		
+	end
 
 end
